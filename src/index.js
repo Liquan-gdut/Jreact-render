@@ -1,63 +1,43 @@
-import React, {Component} from "react";
-import ReactDOM from "react-dom";
-// import ReactDOM from "./kreact/react-dom";
-// import Component from "./kreact/Component";
+// import React from "react";
+// import ReactDOM from "react-dom";
+import ReactDOM from "./Jreact/react-dom";
+
+import Component from "./Jreact/Component";
+
 import "./index.css";
 
-class ClassCoomponent extends Component {
+class ClassComponent extends Component {
   render() {
     return (
       <div className="border">
-        <p>{this.props.name}</p>
+        <p>函数组件-{this.props.name}</p>
       </div>
     );
   }
 }
 
+export default ClassComponent;
+
 function FunctionComponent(props) {
   return (
     <div className="border">
-      <p>{props.name}</p>
+      <p>函数组件-{props.name}</p>
     </div>
   );
 }
 
-// ! 常见陷阱
-// key在同一个层级下要唯一并且稳定
-// 1. key用Math.random()或者Date
-// 节点不能复用，每次更新组件都会卸载老的，创建一个新的
-// 2. index
-// index什么情况下会影响
-// 列表顺序不稳定的时候容易出bug，如发生拖动事件
-
-function FragmentComponent(props) {
-  return [1, 2, 3].map((item, index) => (
-    <React.Fragment key={index}>
-      <li>omg</li>
-      <li>omg2</li>
-    </React.Fragment>
-  ));
-}
-
-const jsx = (
+const app = (
   <div className="border">
-    <h1>全栈</h1>
-    <a href="https://www.kaikeba.com/">kkb</a>
-    <FunctionComponent name="函数组件" />
-    <ClassCoomponent name="类组件" />
-    <>
-      <li>omg</li>
-      <li>omg2</li>
-    </>
-    {/* <ul>
-      <FragmentComponent />
-    </ul> */}
+    <h1>hello hello</h1>
+    <a href="https://www.jd.com/">买买</a>
+    {/* <FunctionComponent name="function" />
+    <ClassComponent name="class" /> */}
   </div>
 );
 
-ReactDOM.render(jsx, document.getElementById("root"));
+ReactDOM.render(app, document.getElementById("root"));
 
-// console.log("React", React.version); //sy-log
+// console.log("version", React.version);
 
 // 原生标签节点
 // 文本节点
